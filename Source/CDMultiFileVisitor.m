@@ -181,7 +181,7 @@
     if (referenceString != nil)
         [self.resultString insertString:referenceString atIndex:self.referenceLocation];
 
-    NSString *filename = [NSString stringWithFormat:@"%@-Protocol.h", protocol.name];
+    NSString *filename = [NSString stringWithFormat:@"%@.h", protocol.name];
     if (self.outputPath != nil)
         filename = [self.outputPath stringByAppendingPathComponent:filename];
 
@@ -236,7 +236,7 @@
 {
     if (name != nil) {
         NSString *framework = [self frameworkForProtocolName:name];
-        NSString *headerName = [name stringByAppendingString:@"-Protocol.h"];
+        NSString *headerName = [name stringByAppendingString:@".h"];
         if (framework == nil)
             return [NSString stringWithFormat:@"#import \"%@\"\n", headerName];
         else
