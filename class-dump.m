@@ -19,6 +19,8 @@
 #import "CDFatFile.h"
 #import "CDFatArch.h"
 #import "CDSearchPathState.h"
+#import "CDYAMLClassDumpVisistor.h"
+
 
 void print_usage(void)
 {
@@ -33,6 +35,7 @@ void print_usage(void)
             "        -C <regex>     only display classes matching regular expression\n"
             "        -f <str>       find string in method name\n"
             "        -H             generate header files in current directory, or directory specified with -o\n"
+            "        -Y             generate YAML files in current directory, or directory specified with -o\n"
             "        -I             sort classes, categories, and protocols by inheritance (overrides -s)\n"
             "        -o <dir>       output directory used for -H\n"
             "        -r             recursively expand frameworks and fixed VM shared libraries\n"
@@ -63,6 +66,7 @@ int main(int argc, char *argv[])
     @autoreleasepool {
         NSString *searchString;
         BOOL shouldGenerateSeparateHeaders = NO;
+        BOOL shouldGenrateYAMLFiles = NO;
         BOOL shouldListArches = NO;
         BOOL shouldPrintVersion = NO;
         CDArch targetArch;
@@ -79,6 +83,7 @@ int main(int argc, char *argv[])
             { "match",                   required_argument, NULL, 'C' },
             { "find",                    required_argument, NULL, 'f' },
             { "generate-multiple-files", no_argument,       NULL, 'H' },
+            { "generate-YAML-files",     no_argument,       NULL, 'Y' },
             { "sort-by-inheritance",     no_argument,       NULL, 'I' },
             { "output-dir",              required_argument, NULL, 'o' },
             { "recursive",               no_argument,       NULL, 'r' },
@@ -102,7 +107,7 @@ int main(int argc, char *argv[])
 
         CDClassDump *classDump = [[CDClassDump alloc] init];
 
-        while ( (ch = getopt_long(argc, argv, "aAC:f:HIo:rRsSt", longopts, NULL)) != -1) {
+        while ( (ch = getopt_long(argc, argv, "aAC:f:HIo:rRsSt:Y", longopts, NULL)) != -1) {
             switch (ch) {
                 case CD_OPT_ARCH: {
                     NSString *name = [NSString stringWithUTF8String:optarg];
@@ -202,6 +207,10 @@ int main(int argc, char *argv[])
                     
                 case 'H':
                     shouldGenerateSeparateHeaders = YES;
+                    break;
+                    
+                case 'Y':
+                    shouldGenrateYAMLFiles = YES;
                     break;
                     
                 case 'I':
@@ -321,6 +330,11 @@ int main(int argc, char *argv[])
                         classDump.typeController.delegate = multiFileVisitor;
                         multiFileVisitor.outputPath = outputPath;
                         [classDump recursivelyVisit:multiFileVisitor];
+                    } else if (shouldGenrateYAMLFiles) {
+                        CDYAMLClassDumpVisistor *YAMLVisitor = [[CDYAMLClassDumpVisistor alloc] initWithOutputPath:outputPath];
+                        YAMLVisitor.classDump = classDump;
+                        classDump.typeController.delegate = YAMLVisitor;
+                        [classDump recursivelyVisit:YAMLVisitor];
                     } else {
                         CDClassDumpVisitor *visitor = [[CDClassDumpVisitor alloc] init];
                         visitor.classDump = classDump;
