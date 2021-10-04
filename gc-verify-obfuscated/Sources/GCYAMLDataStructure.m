@@ -10,7 +10,7 @@
 
 @interface GCYAMLDataStructure ()
 {
-    NSMutableDictionary *_mutableInstaceMethodDict;
+    
 }
 @end // @interface GCYAMLDataStructure ()
 
@@ -21,27 +21,20 @@
 {
     self = [super init];
     if (self) {
-        _mutableInstaceMethodDict = [NSMutableDictionary new];
+        _instanceMethodsDict = [NSMutableDictionary new];
+        _classMethodsDict = [NSMutableDictionary new];
+        _ivarsDict = [NSMutableDictionary new];
+        _propertiesDict = [NSMutableDictionary new];
     }
     return self;
 }
 
-- (instancetype)initWithInterfaceName:(NSString *)interfaceName
-                   instanceMethodDict:(NSDictionary<NSString *,NSString *> *)instanceMethodDict {
-    self = [super init];
+- (instancetype)initWithInterfaceName:(NSString *)interfaceName {
+    self = [self init];
     if (self) {
         _interfaceName = interfaceName;
-        _mutableInstaceMethodDict = [NSMutableDictionary dictionaryWithDictionary:instanceMethodDict];
     }
     return self;
-}
-
-- (NSDictionary<NSString *,NSString *> *)instanceMethodDict {
-    return _mutableInstaceMethodDict.copy;
-}
-
-- (void)addInstanceMethod:(NSString *)instanceMethod {
-    _mutableInstaceMethodDict[instanceMethod] = @"1";
 }
 
 @end // @implementation GCYAMLDataStructure

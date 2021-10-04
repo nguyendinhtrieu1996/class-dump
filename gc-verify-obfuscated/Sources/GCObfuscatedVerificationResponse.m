@@ -1,19 +1,19 @@
 //
-//  GCVerifyObfuscatedResponse.m
+//  GCObfuscatedVerificationResponse.m
 //  gc-verify-obfuscated
 //
 //  Created by Trieu Nguyen on 01/10/2021.
 //
 
-#import "GCVerifyObfuscatedResponse.h"
+#import "GCObfuscatedVerificationResponse.h"
 
-@interface GCVerifyObfuscatedResponse ()
+@interface GCObfuscatedVerificationResponse ()
 {
     NSMutableArray<NSString *> *_mutableMessages;
 }
-@end // @interface GCVerifyObfuscatedResponse ()
+@end // @interface GCObfuscatedVerificationResponse ()
 
-@implementation GCVerifyObfuscatedResponse
+@implementation GCObfuscatedVerificationResponse
 
 - (instancetype)init
 {
@@ -24,7 +24,7 @@
     return self;
 }
 
-- (instancetype)initWithResult:(GCVerifyObfuscatedResult)result
+- (instancetype)initWithResult:(GCObfuscatedVerificationResult)result
                       messages:(NSArray<NSString *> *)messages {
     
     self = [self init];
@@ -47,4 +47,4 @@
     return [_mutableMessages componentsJoinedByString:@" | "];
 }
 
-@end // @implementation GCVerifyObfuscatedResponse
+@end // @implementation GCObfuscatedVerificationResponse

@@ -129,7 +129,7 @@
 		B237D84427070EDA0035FA56 /* libyaml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B23A71792707058E0034EA26 /* libyaml.a */; };
 		B237D84B270717060035FA56 /* GCObfuscatedVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = B237D84A270717060035FA56 /* GCObfuscatedVerification.m */; };
 		B237D84E270717720035FA56 /* GCYAMLFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = B237D84D270717720035FA56 /* GCYAMLFileReader.m */; };
-		B237D8512707195C0035FA56 /* GCVerifyObfuscatedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B237D8502707195C0035FA56 /* GCVerifyObfuscatedResponse.m */; };
+		B237D8512707195C0035FA56 /* GCObfuscatedVerificationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B237D8502707195C0035FA56 /* GCObfuscatedVerificationResponse.m */; };
 		B237D85727071E250035FA56 /* GCYAMLDataStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = B237D85627071E250035FA56 /* GCYAMLDataStructure.m */; };
 		B23A7181270705EE0034EA26 /* CDInternalMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B23A7180270705EE0034EA26 /* CDInternalMacros.h */; };
 		B23A718D270705FE0034EA26 /* yaml.h in Headers */ = {isa = PBXBuildFile; fileRef = B23A7182270705FE0034EA26 /* yaml.h */; };
@@ -149,6 +149,8 @@
 		B23A71A02707068C0034EA26 /* yaml-public.h in Headers */ = {isa = PBXBuildFile; fileRef = B23A719F2707068C0034EA26 /* yaml-public.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B29E2F5C27046F9B0093247B /* CDYAMLClassDumpVisistor.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E2F5B27046F9B0093247B /* CDYAMLClassDumpVisistor.m */; };
 		B29E2F9227047FAE0093247B /* CDYAMLDataStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = B29E2F9127047FAE0093247B /* CDYAMLDataStructure.m */; };
+		B2D54D5F270AF1DB0003EA18 /* GCYAMLFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D54D5E270AF1DB0003EA18 /* GCYAMLFileParser.m */; };
+		B2D54D63270AF3900003EA18 /* GCObfuscatedVerificationError.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D54D62270AF3900003EA18 /* GCObfuscatedVerificationError.m */; };
 		C270B5C616C54AD6006CA75D /* ULEB128.m in Sources */ = {isa = PBXBuildFile; fileRef = C270B5C516C54AD5006CA75D /* ULEB128.m */; };
 		C270B5C816C54B0C006CA75D /* ULEB128.h in Headers */ = {isa = PBXBuildFile; fileRef = C270B5C716C54B0A006CA75D /* ULEB128.h */; };
 /* End PBXBuildFile section */
@@ -450,8 +452,8 @@
 		B237D84A270717060035FA56 /* GCObfuscatedVerification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCObfuscatedVerification.m; sourceTree = "<group>"; };
 		B237D84C270717720035FA56 /* GCYAMLFileReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCYAMLFileReader.h; sourceTree = "<group>"; };
 		B237D84D270717720035FA56 /* GCYAMLFileReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCYAMLFileReader.m; sourceTree = "<group>"; };
-		B237D84F2707195C0035FA56 /* GCVerifyObfuscatedResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCVerifyObfuscatedResponse.h; sourceTree = "<group>"; };
-		B237D8502707195C0035FA56 /* GCVerifyObfuscatedResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCVerifyObfuscatedResponse.m; sourceTree = "<group>"; };
+		B237D84F2707195C0035FA56 /* GCObfuscatedVerificationResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCObfuscatedVerificationResponse.h; sourceTree = "<group>"; };
+		B237D8502707195C0035FA56 /* GCObfuscatedVerificationResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCObfuscatedVerificationResponse.m; sourceTree = "<group>"; };
 		B237D85527071E250035FA56 /* GCYAMLDataStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCYAMLDataStructure.h; sourceTree = "<group>"; };
 		B237D85627071E250035FA56 /* GCYAMLDataStructure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCYAMLDataStructure.m; sourceTree = "<group>"; };
 		B23A71792707058E0034EA26 /* libyaml.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libyaml.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -474,6 +476,11 @@
 		B29E2F5B27046F9B0093247B /* CDYAMLClassDumpVisistor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDYAMLClassDumpVisistor.m; sourceTree = "<group>"; };
 		B29E2F9027047FAE0093247B /* CDYAMLDataStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDYAMLDataStructure.h; sourceTree = "<group>"; };
 		B29E2F9127047FAE0093247B /* CDYAMLDataStructure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDYAMLDataStructure.m; sourceTree = "<group>"; };
+		B2D54D5D270AF1DB0003EA18 /* GCYAMLFileParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCYAMLFileParser.h; sourceTree = "<group>"; };
+		B2D54D5E270AF1DB0003EA18 /* GCYAMLFileParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCYAMLFileParser.m; sourceTree = "<group>"; };
+		B2D54D60270AF3210003EA18 /* GCObfuscatedVerificationMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCObfuscatedVerificationMacros.h; sourceTree = "<group>"; };
+		B2D54D61270AF3900003EA18 /* GCObfuscatedVerificationError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCObfuscatedVerificationError.h; sourceTree = "<group>"; };
+		B2D54D62270AF3900003EA18 /* GCObfuscatedVerificationError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCObfuscatedVerificationError.m; sourceTree = "<group>"; };
 		C270B5C516C54AD5006CA75D /* ULEB128.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ULEB128.m; path = Source/ULEB128.m; sourceTree = "<group>"; };
 		C270B5C716C54B0A006CA75D /* ULEB128.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ULEB128.h; path = Source/ULEB128.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -897,10 +904,15 @@
 				B237D84A270717060035FA56 /* GCObfuscatedVerification.m */,
 				B237D84C270717720035FA56 /* GCYAMLFileReader.h */,
 				B237D84D270717720035FA56 /* GCYAMLFileReader.m */,
-				B237D84F2707195C0035FA56 /* GCVerifyObfuscatedResponse.h */,
-				B237D8502707195C0035FA56 /* GCVerifyObfuscatedResponse.m */,
+				B237D84F2707195C0035FA56 /* GCObfuscatedVerificationResponse.h */,
+				B237D8502707195C0035FA56 /* GCObfuscatedVerificationResponse.m */,
 				B237D85527071E250035FA56 /* GCYAMLDataStructure.h */,
 				B237D85627071E250035FA56 /* GCYAMLDataStructure.m */,
+				B2D54D5D270AF1DB0003EA18 /* GCYAMLFileParser.h */,
+				B2D54D5E270AF1DB0003EA18 /* GCYAMLFileParser.m */,
+				B2D54D60270AF3210003EA18 /* GCObfuscatedVerificationMacros.h */,
+				B2D54D61270AF3900003EA18 /* GCObfuscatedVerificationError.h */,
+				B2D54D62270AF3900003EA18 /* GCObfuscatedVerificationError.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1316,8 +1328,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B237D85727071E250035FA56 /* GCYAMLDataStructure.m in Sources */,
+				B2D54D5F270AF1DB0003EA18 /* GCYAMLFileParser.m in Sources */,
+				B2D54D63270AF3900003EA18 /* GCObfuscatedVerificationError.m in Sources */,
 				B237D84B270717060035FA56 /* GCObfuscatedVerification.m in Sources */,
-				B237D8512707195C0035FA56 /* GCVerifyObfuscatedResponse.m in Sources */,
+				B237D8512707195C0035FA56 /* GCObfuscatedVerificationResponse.m in Sources */,
 				B237D83C27070C510035FA56 /* main.m in Sources */,
 				B237D84E270717720035FA56 /* GCYAMLFileReader.m in Sources */,
 			);

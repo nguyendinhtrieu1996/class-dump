@@ -11,12 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@class GCVerifyObfuscatedResponse;
+@class GCObfuscatedVerificationResponse;
 
 
 @interface GCObfuscatedVerification : NSObject
 
-- (GCVerifyObfuscatedResponse *)verifyWithBlackListFile:(NSString *)blacklistFile
+- (GCObfuscatedVerificationResponse *)verifyWithBlackListFile:(NSString *)blacklistFile
                                              dumpedPath:(NSString *)dumpedPath;
 
 @end // @interface GCObfuscatedVerification

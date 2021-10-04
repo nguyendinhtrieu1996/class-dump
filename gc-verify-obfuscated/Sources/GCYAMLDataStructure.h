@@ -13,12 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) NSString *interfaceName;
 
-@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *instanceMethodDict;
+@property (nonatomic, readonly) NSMutableDictionary<NSString *, NSString *> *instanceMethodsDict;
 
-- (instancetype)initWithInterfaceName:(NSString *)interfaceName
-                   instanceMethodDict:(NSDictionary<NSString *, NSString *> *)instanceMethodDict;
+@property (nonatomic, readonly) NSMutableDictionary<NSString *, NSString *> *classMethodsDict;
 
-- (void)addInstanceMethod:(NSString *)instanceMethod;
+@property (nonatomic, readonly) NSMutableDictionary<NSString *, NSString *> *propertiesDict;
+
+@property (nonatomic, readonly) NSMutableDictionary<NSString *, NSString *> *ivarsDict;
+
+- (instancetype)initWithInterfaceName:(NSString *)interfaceName;
 
 @end // @interface GCYAMLDataStructure
 
