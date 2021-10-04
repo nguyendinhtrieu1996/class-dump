@@ -127,6 +127,10 @@
 		0D288C11187BC2EE0026E2A0 /* CDOCClassReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D288C0F187BC2EE0026E2A0 /* CDOCClassReference.m */; };
 		B237D83C27070C510035FA56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B237D83B27070C510035FA56 /* main.m */; };
 		B237D84427070EDA0035FA56 /* libyaml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B23A71792707058E0034EA26 /* libyaml.a */; };
+		B237D84B270717060035FA56 /* GCObfuscatedVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = B237D84A270717060035FA56 /* GCObfuscatedVerification.m */; };
+		B237D84E270717720035FA56 /* GCYAMLFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = B237D84D270717720035FA56 /* GCYAMLFileReader.m */; };
+		B237D8512707195C0035FA56 /* GCVerifyObfuscatedResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B237D8502707195C0035FA56 /* GCVerifyObfuscatedResponse.m */; };
+		B237D85727071E250035FA56 /* GCYAMLDataStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = B237D85627071E250035FA56 /* GCYAMLDataStructure.m */; };
 		B23A7181270705EE0034EA26 /* CDInternalMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B23A7180270705EE0034EA26 /* CDInternalMacros.h */; };
 		B23A718D270705FE0034EA26 /* yaml.h in Headers */ = {isa = PBXBuildFile; fileRef = B23A7182270705FE0034EA26 /* yaml.h */; };
 		B23A718E270705FE0034EA26 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = B23A7183270705FE0034EA26 /* config.h */; };
@@ -442,6 +446,14 @@
 		0D288C0F187BC2EE0026E2A0 /* CDOCClassReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDOCClassReference.m; path = Source/CDOCClassReference.m; sourceTree = "<group>"; };
 		B237D83927070C510035FA56 /* gc-verify-obfuscated */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "gc-verify-obfuscated"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B237D83B27070C510035FA56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B237D849270717060035FA56 /* GCObfuscatedVerification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCObfuscatedVerification.h; sourceTree = "<group>"; };
+		B237D84A270717060035FA56 /* GCObfuscatedVerification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCObfuscatedVerification.m; sourceTree = "<group>"; };
+		B237D84C270717720035FA56 /* GCYAMLFileReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCYAMLFileReader.h; sourceTree = "<group>"; };
+		B237D84D270717720035FA56 /* GCYAMLFileReader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCYAMLFileReader.m; sourceTree = "<group>"; };
+		B237D84F2707195C0035FA56 /* GCVerifyObfuscatedResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCVerifyObfuscatedResponse.h; sourceTree = "<group>"; };
+		B237D8502707195C0035FA56 /* GCVerifyObfuscatedResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCVerifyObfuscatedResponse.m; sourceTree = "<group>"; };
+		B237D85527071E250035FA56 /* GCYAMLDataStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCYAMLDataStructure.h; sourceTree = "<group>"; };
+		B237D85627071E250035FA56 /* GCYAMLDataStructure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCYAMLDataStructure.m; sourceTree = "<group>"; };
 		B23A71792707058E0034EA26 /* libyaml.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libyaml.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23A7180270705EE0034EA26 /* CDInternalMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDInternalMacros.h; sourceTree = "<group>"; };
 		B23A7182270705FE0034EA26 /* yaml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yaml.h; sourceTree = "<group>"; };
@@ -872,9 +884,25 @@
 		B237D83A27070C510035FA56 /* gc-verify-obfuscated */ = {
 			isa = PBXGroup;
 			children = (
+				B237D848270715EF0035FA56 /* Sources */,
 				B237D83B27070C510035FA56 /* main.m */,
 			);
 			path = "gc-verify-obfuscated";
+			sourceTree = "<group>";
+		};
+		B237D848270715EF0035FA56 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B237D849270717060035FA56 /* GCObfuscatedVerification.h */,
+				B237D84A270717060035FA56 /* GCObfuscatedVerification.m */,
+				B237D84C270717720035FA56 /* GCYAMLFileReader.h */,
+				B237D84D270717720035FA56 /* GCYAMLFileReader.m */,
+				B237D84F2707195C0035FA56 /* GCVerifyObfuscatedResponse.h */,
+				B237D8502707195C0035FA56 /* GCVerifyObfuscatedResponse.m */,
+				B237D85527071E250035FA56 /* GCYAMLDataStructure.h */,
+				B237D85627071E250035FA56 /* GCYAMLDataStructure.m */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		B23A71422706FFB60034EA26 /* Frameworks */ = {
@@ -1105,6 +1133,7 @@
 				TargetAttributes = {
 					01EB825E13A590D9003EDE60 = {
 						DevelopmentTeam = 6YPTSWJK4P;
+						ProvisioningStyle = Automatic;
 					};
 					B237D83827070C510035FA56 = {
 						CreatedOnToolsVersion = 13.0;
@@ -1286,7 +1315,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B237D85727071E250035FA56 /* GCYAMLDataStructure.m in Sources */,
+				B237D84B270717060035FA56 /* GCObfuscatedVerification.m in Sources */,
+				B237D8512707195C0035FA56 /* GCVerifyObfuscatedResponse.m in Sources */,
 				B237D83C27070C510035FA56 /* main.m in Sources */,
+				B237D84E270717720035FA56 /* GCYAMLFileReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1652,8 +1685,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "-";
-				DEVELOPMENT_TEAM = 6YPTSWJK4P;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "class-dump-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -1662,6 +1696,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -1669,8 +1704,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "-";
-				DEVELOPMENT_TEAM = 6YPTSWJK4P;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "class-dump-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -1683,6 +1719,7 @@
 					Info.plist,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -1700,6 +1737,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 6YPTSWJK4P;
@@ -1729,6 +1767,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 6YPTSWJK4P;

@@ -31,7 +31,7 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -52,7 +52,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "class-dump -Y -o /Users/geotech/Downloads/dump /Users/geotech/Downloads/GeoComplySDK250.framework"
+            argument = "class-dump -H -o /Users/geotech/Downloads/dump /Users/geotech/Downloads/GeoComplySDK250.framework"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

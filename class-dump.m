@@ -63,6 +63,17 @@ void print_usage(void)
 
 int main(int argc, char *argv[])
 {
+//#if DEBUG
+//    argc = 5;
+//    char *_argv[] = {
+//        "class-dump",
+//        "-Y", "-o",
+//        "/Users/geotech/Downloads/dump",
+//        "/Users/geotech/Downloads/GeoComplySDK250.framework"
+//    };
+//    argv = _argv;
+//#endif // #if DEBUG
+    
     @autoreleasepool {
         NSString *searchString;
         BOOL shouldGenerateSeparateHeaders = NO;
