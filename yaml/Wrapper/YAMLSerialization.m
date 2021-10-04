@@ -43,7 +43,7 @@ static id
 __YAMLSerializationObjectWithYAMLDocument (yaml_document_t *document, YAMLReadOptions opt, NSError **error) {
 
     id root = nil;
-    id objects = NULL;
+    NSMutableArray *objects = [NSMutableArray new];
 
     // Mutability options
     Class arrayClass = [NSMutableArray class]; // TODO: FIXME:
@@ -69,12 +69,6 @@ __YAMLSerializationObjectWithYAMLDocument (yaml_document_t *document, YAMLReadOp
     yaml_node_pair_t *pair = NULL;
 
     int i = 0;
-
-    objects = (__bridge id) calloc(document->nodes.top - document->nodes.start, sizeof(id));
-    if (objects == NULL) {
-        YAML_SET_ERROR(kYAMLErrorCodeOutOfMemory,  @"Couldn't allocate memory", @"Please try to free memory and retry");
-        return nil;
-    }
 
     // Create all objects, don't fill containers yet...
     for (node = document->nodes.start, i = 0; node < document->nodes.top; node++, i++) {
@@ -116,11 +110,6 @@ __YAMLSerializationObjectWithYAMLDocument (yaml_document_t *document, YAMLReadOp
             default:
                 break;
         }
-    }
-
-
-    if (objects != NULL) {
-        free((__bridge void *)(objects));
     }
 
     return root;
