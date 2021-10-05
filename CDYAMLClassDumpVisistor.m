@@ -144,7 +144,7 @@
         return;
     }
     
-    id interfaceDatas = [self _buildInterfaceDatas];
+    id interfaceDatas = [self _buildInterfacesDictionary];
     
     NSString *fileName = [NSString stringWithFormat:@"%@.yml", _dataStructure.interfaceName];
     fileName = [_outputPath stringByAppendingPathComponent:fileName];
@@ -162,21 +162,21 @@
     }
 }
 
-- (NSDictionary *)_buildInterfaceDatas {
-    NSMutableArray *datas = [NSMutableArray new];
+- (NSDictionary *)_buildInterfacesDictionary {
+    NSMutableDictionary *dataDict = [NSMutableDictionary new];
     
     if (CDIsEmptyStr(_dataStructure.interfaceName)) {
         [_dataStructure.logs addObject:@"Invalid interface name"];
     }
     
-    [datas addObject:@{ @"name" : CDNullObjToEmptyStr(_dataStructure.interfaceName) }];
-    [datas addObject:@{ @"ivars" : [self _buildInterfaceContentDictWithNames:_dataStructure.ivars] }];
-    [datas addObject:@{ @"properties" : [self _buildInterfaceContentDictWithNames:_dataStructure.properties] }];
-    [datas addObject:@{ @"instancemethods" : [self _buildInterfaceContentDictWithNames:_dataStructure.instanceMethods] }];
-    [datas addObject:@{ @"classmethods" : [self _buildInterfaceContentDictWithNames:_dataStructure.classMethods] }];
-    [datas addObject:@{ @"logs" : _dataStructure.logs }];
+    dataDict[@"name"] = CDNullObjToEmptyStr(_dataStructure.interfaceName);
+    dataDict[@"ivars"] = [self _buildInterfaceContentDictWithNames:_dataStructure.ivars];
+    dataDict[@"properties"] = [self _buildInterfaceContentDictWithNames:_dataStructure.properties];
+    dataDict[@"instancemethods"] = [self _buildInterfaceContentDictWithNames:_dataStructure.instanceMethods];
+    dataDict[@"classmethods"] = [self _buildInterfaceContentDictWithNames:_dataStructure.classMethods];
+    dataDict[@"logs"] = _dataStructure.logs;
     
-    return @{ @"interfaces" : @[datas] };
+    return @{ @"interfaces" : @[dataDict] };
 }
 
 - (NSArray *)_buildInterfaceContentDictWithNames:(NSArray<NSString *> *)names {
