@@ -44,17 +44,17 @@ int main(int argc, const char * argv[]) {
         = [obfuscatedVerifycation verifyWithBlackListFile:[NSString stringWithUTF8String:blacklistFilePath]
                                                dumpedPath:[NSString stringWithUTF8String:dumpFilePath]];
         
-        printf("\n\n=======================VERIFY FINISH=======================\n\n");
+        printf("\n=======================VERIFY FINISH=======================");
         
         if (response.result == GCObfuscatedVerificationResult_Different) {
             printf("\nVerify FAILED");
             printf("\nLog: %s", response.finalizeMessages.UTF8String);
-            printf("\n\n=======================END=======================\n\n");
+            printf("\n=======================END=======================\n");
             exit(1);
         }
         
         printf("\nLog: %s", response.finalizeMessages.UTF8String);
-        printf("\n\n=======================END=======================\n\n");
+        printf("\n=======================END=======================\n");
     }
     return 0;
 }
