@@ -144,7 +144,7 @@
         return;
     }
     
-    NSDictionary *resultDict = [self _buildInterfaceResultDict];
+    id interfaceDatas = [self _buildInterfaceDatas];
     
     NSString *fileName = [NSString stringWithFormat:@"%@.yml", _dataStructure.interfaceName];
     fileName = [_outputPath stringByAppendingPathComponent:fileName];
@@ -152,7 +152,7 @@
     _outputStream = [NSOutputStream outputStreamToFileAtPath:fileName append:NO];
     
     NSError *error = nil;
-    [YAMLSerialization writeObject:resultDict
+    [YAMLSerialization writeObject:interfaceDatas
                       toYAMLStream:_outputStream
                            options:kYAMLWriteOptionSingleDocument
                              error:&error];
@@ -162,42 +162,37 @@
     }
 }
 
-- (NSDictionary *)_buildInterfaceResultDict {
-    NSMutableDictionary *resultDict = [NSMutableDictionary new];
+- (NSDictionary *)_buildInterfaceDatas {
+    NSMutableArray *datas = [NSMutableArray new];
     
     if (CDIsEmptyStr(_dataStructure.interfaceName)) {
         [_dataStructure.logs addObject:@"Invalid interface name"];
     }
     
-    resultDict[@"interface"] = CDNullObjToEmptyStr(_dataStructure.interfaceName);
-    [self _buildInterfaceDataWithResultDict:resultDict data:_dataStructure.ivars dataKey:@"ivars"];
-    [self _buildInterfaceDataWithResultDict:resultDict data:_dataStructure.properties dataKey:@"properties"];
-    [self _buildInterfaceDataWithResultDict:resultDict data:_dataStructure.instanceMethods dataKey:@"instanceMethods"];
-    [self _buildInterfaceDataWithResultDict:resultDict data:_dataStructure.classMethods dataKey:@"staticMethods"];
-    resultDict[@"logs"] = _dataStructure.logs;
+    [datas addObject:@{ @"name" : CDNullObjToEmptyStr(_dataStructure.interfaceName) }];
+    [datas addObject:@{ @"ivars" : [self _buildInterfaceContentDictWithNames:_dataStructure.ivars] }];
+    [datas addObject:@{ @"properties" : [self _buildInterfaceContentDictWithNames:_dataStructure.properties] }];
+    [datas addObject:@{ @"instancemethods" : [self _buildInterfaceContentDictWithNames:_dataStructure.instanceMethods] }];
+    [datas addObject:@{ @"classmethods" : [self _buildInterfaceContentDictWithNames:_dataStructure.classMethods] }];
+    [datas addObject:@{ @"logs" : _dataStructure.logs }];
     
-    return resultDict;
+    return @{ @"interfaces" : @[datas] };
 }
 
-- (void)_buildInterfaceDataWithResultDict:(NSMutableDictionary *)resultDict
-                                     data:(NSArray<NSString *> *)data
-                                  dataKey:(NSString *)dataKey {
-    
-    if (CDIsEmptyArr(data)) {
-        return;
+- (NSArray *)_buildInterfaceContentDictWithNames:(NSArray<NSString *> *)names {
+    if (CDIsEmptyArr(names)) {
+        return @[];
     }
     
-    NSMutableArray<NSString *> *ivars = [NSMutableArray new];
+    NSMutableArray<NSDictionary<NSString *, NSString *> *> *interfaceContents = [NSMutableArray new];
     
-    for (NSString *ivar in data) {
-        if (CDIsNonEmptyStr(ivar)) {
-            [ivars addObject:ivar];
+    for (NSString *name in names) {
+        if (CDIsNonEmptyStr(name)) {
+            [interfaceContents addObject:@{ @"name" : name }];
         }
     }
-    
-    if (CDIsNonEmptyArr(ivars)) {
-        resultDict[dataKey] = ivars;
-    }
+
+    return interfaceContents;
 }
 
 - (void)_tryToRemoveDirectory {
